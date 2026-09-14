@@ -1,0 +1,581 @@
+{
+  "_comment": "计算层回归基线。任何改版都不得让这些数字发生变化。重新生成：node tools/baseline.mjs --capture",
+  "_capturedAt": "2026-09-13",
+  "_revisionNote": "2026-09-13 因数据库扩充（GPU 22→66 款，补入 GTX 900 / 10 系 / RTX 20 / 30 系 / RX 500 / 5000 / 6000 系老卡）而重抓。重抓前用 tools/baseline-diff.mjs 逐字段核对过：计算值（瓦数 / 项数 / 问题码）差异为 0，唯一变化的是「老平台 DDR4（12 代 + B760）」的 upgradeMaxGpu 建议文案 —— 由 Arc A770（225W，2022 年 Alchemist，已停产）改为 GeForce RTX 4070 SUPER（220W，在售）。原因是升级建议改为优先推荐当前在售型号，不再单纯按 TBP 大小取胜。",
+  "fixtures": {
+    "仅 CPU（核显办公）": {
+      "cpuId": "r5-9600x",
+      "gpuId": "__igpu__",
+      "moboId": "asus-b850-plus",
+      "ramId": "ddr5-6000-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-990pro-2t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "air-pa120-se",
+      "fanId": "fan-nfa12x25",
+      "fanQty": 2,
+      "caseId": "case-inwin-a5",
+      "scenario": "office"
+    },
+    "仅显卡（无 CPU）": {
+      "gpuAibId": "powercolor-reddevil-9070xt",
+      "gpuId": "rx9070xt",
+      "caseId": "case-inwin-a5",
+      "scenario": "gaming"
+    },
+    "旗舰全套（Intel + 5090）": {
+      "cpuId": "cu7-270kp",
+      "gpuAibId": "asus-astral-5090",
+      "moboId": "asus-z890-hero",
+      "ramId": "ddr5-7200-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-9100pro-2t",
+          "qty": 1
+        },
+        {
+          "id": "hdd-exos-20t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "aio-frozen-warframe-360",
+      "fanId": "fan-tlc12cs",
+      "fanQty": 3,
+      "caseId": "case-o11d-evo",
+      "argbChannels": 1,
+      "extras": {
+        "x-usb-dev": 4
+      },
+      "scenario": "gaming"
+    },
+    "旗舰超频（闪电 5090 极致）": {
+      "cpuId": "cu7-270kp",
+      "overclock": true,
+      "gpuAibId": "msi-lightning-z-5090",
+      "moboId": "asus-z890-hero",
+      "ramId": "ddr5-7200-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-9100pro-2t",
+          "qty": 1
+        },
+        {
+          "id": "hdd-exos-20t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "aio-frozen-warframe-360",
+      "fanId": "fan-tlc12cs",
+      "fanQty": 3,
+      "caseId": "case-o11d-evo",
+      "scenario": "extreme"
+    },
+    "ITX 小机箱（集成显卡）": {
+      "cpuId": "r7-9700x",
+      "gpuId": "__igpu__",
+      "moboId": "asus-b650e-i",
+      "ramId": "ddr5-6000-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-990pro-2t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "air-pa120-se",
+      "fanId": "fan-nfa12x25",
+      "fanQty": 2,
+      "caseId": "case-lianli-a4h2o",
+      "psuId": "seasonic-sfx-750",
+      "scenario": "gaming"
+    },
+    "多 Gen5 SSD（4 块）": {
+      "cpuId": "i9-14900k",
+      "gpuAibId": "msi-trio-5090",
+      "moboId": "asus-z890-hero",
+      "ramId": "ddr5-7200-16x2-kf",
+      "ramKits": 2,
+      "storage": [
+        {
+          "id": "ssd-9100pro-4t",
+          "qty": 2
+        },
+        {
+          "id": "ssd-9100pro-2t",
+          "qty": 2
+        }
+      ],
+      "coolerId": "aio-kraken-elite-360",
+      "fanId": "fan-unifan-sl-inf",
+      "fanQty": 6,
+      "caseId": "case-o11-vision",
+      "argbChannels": 3,
+      "scenario": "creator"
+    },
+    "ARGB 满载 + 扩展卡": {
+      "cpuId": "r9-9950x3d2",
+      "gpuAibId": "sapphire-nitro-9070xt",
+      "moboId": "msi-b850-tomahawk",
+      "ramId": "ddr5-6000-32x2-gskill",
+      "ramKits": 2,
+      "storage": [
+        {
+          "id": "ssd-tipro9000-2t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "aio-ryujin-iii-360",
+      "fanId": "fan-cm-mf120",
+      "fanQty": 8,
+      "caseId": "case-masterframe-600",
+      "argbChannels": 6,
+      "extras": {
+        "x-pcie-net": 1,
+        "x-capture": 1,
+        "x-usb-dev": 8,
+        "x-pump": 1
+      },
+      "scenario": "creator"
+    },
+    "老平台 DDR4（12 代 + B760）": {
+      "cpuId": "i5-12400f",
+      "gpuAibId": "asus-dual-5060ti",
+      "moboId": "msi-pro-b760m-a",
+      "ramId": "ddr4-3200-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-870evo-4t",
+          "qty": 1
+        },
+        {
+          "id": "hdd-ironwolf-8t",
+          "qty": 2
+        }
+      ],
+      "coolerId": "air-pa120-se",
+      "fanId": "fan-tlc12prov2",
+      "fanQty": 3,
+      "caseId": "case-inwin-a5",
+      "scenario": "gaming"
+    },
+    "电源接口不足（触发 error）": {
+      "cpuId": "r9-9950x3d2",
+      "gpuAibId": "powercolor-reddevil-9070xt",
+      "moboId": "asus-b850-plus",
+      "ramId": "ddr5-6000-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-990pro-2t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "air-pa120-se",
+      "fanId": "fan-tlc12prov2",
+      "fanQty": 2,
+      "caseId": "case-inwin-a5",
+      "psuId": "seasonic-focus-gx650",
+      "scenario": "gaming"
+    },
+    "插槽不兼容（AMD CPU + Intel 板）": {
+      "cpuId": "r9-9950x3d2",
+      "gpuAibId": "asrock-taichi-9070xt",
+      "moboId": "asus-z890-hero",
+      "ramId": "ddr5-6000-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-990pro-2t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "air-pa120-se",
+      "fanId": "fan-tlc12prov2",
+      "fanQty": 2,
+      "caseId": "case-inwin-a5",
+      "scenario": "gaming"
+    },
+    "未发布硬件（5080 SUPER）": {
+      "cpuId": "cu5-250kp",
+      "gpuAibId": "asus-tuf-5080super",
+      "moboId": "asus-b860-plus",
+      "ramId": "ddr5-7200-16x2-kf",
+      "ramKits": 1,
+      "storage": [
+        {
+          "id": "ssd-9100pro-2t",
+          "qty": 1
+        }
+      ],
+      "coolerId": "aio-galahad-ii-360",
+      "fanId": "fan-tlc12cs",
+      "fanQty": 3,
+      "caseId": "case-p500a",
+      "scenario": "gaming"
+    }
+  },
+  "expected": {
+    "仅 CPU（核显办公）": {
+      "subtotal": 129.9,
+      "expected": 97.4,
+      "transient": 129.9,
+      "redundancy": 1.3,
+      "recFloor": 450,
+      "recIdeal": 450,
+      "gpuWatts": 0,
+      "cpuWatts": 88,
+      "upgradeHeadroom": 320.1,
+      "upgradeMaxGpu": "Arc B580（190W）",
+      "itemCount": 8,
+      "items": [
+        "CPU=88",
+        "显卡=0",
+        "主板=18",
+        "内存=6.4",
+        "NVMe=7.5",
+        "风冷散热器=3.6",
+        "机箱风扇=3.4",
+        "机箱灯效=3"
+      ],
+      "issueCodes": [],
+      "pickWatts": {
+        "value": 550,
+        "balanced": 1200,
+        "flagship": 1600
+      }
+    },
+    "仅显卡（无 CPU）": {
+      "subtotal": 333,
+      "expected": 316.3,
+      "transient": 531,
+      "redundancy": 1.4,
+      "recFloor": 800,
+      "recIdeal": 800,
+      "gpuWatts": 330,
+      "cpuWatts": 0,
+      "upgradeHeadroom": 467,
+      "upgradeMaxGpu": "GeForce RTX 4090（450W）",
+      "itemCount": 2,
+      "items": [
+        "显卡=330",
+        "机箱灯效=3"
+      ],
+      "issueCodes": [
+        "GPU_FIT_TIGHT"
+      ],
+      "pickWatts": {
+        "value": 850,
+        "balanced": 850,
+        "flagship": 1600
+      }
+    },
+    "旗舰全套（Intel + 5090）": {
+      "subtotal": 947.6,
+      "expected": 900.2,
+      "transient": 1511.6,
+      "redundancy": 1.4,
+      "recFloor": 1300,
+      "recIdeal": 1500,
+      "gpuWatts": 600,
+      "cpuWatts": 250,
+      "upgradeHeadroom": 552.4,
+      "upgradeMaxGpu": "GeForce RTX 5090（575W）",
+      "itemCount": 11,
+      "items": [
+        "CPU=250",
+        "显卡=600",
+        "主板=30",
+        "内存=9.2",
+        "NVMe=11",
+        "HDD=8",
+        "一体式水冷=13.2",
+        "机箱风扇=7.2",
+        "机箱灯效=5",
+        "ARGB 灯带=4",
+        "扩展设备=10"
+      ],
+      "issueCodes": [
+        "GPU_SLOT_OCCUPY"
+      ],
+      "pickWatts": {
+        "value": 1600,
+        "balanced": 1600,
+        "flagship": 1600
+      }
+    },
+    "旗舰超频（闪电 5090 极致）": {
+      "subtotal": 1383.6,
+      "expected": 1494.3,
+      "transient": 2307.6,
+      "redundancy": 1.5,
+      "recFloor": 2000,
+      "recIdeal": 2000,
+      "gpuWatts": 1000,
+      "cpuWatts": 300,
+      "upgradeHeadroom": 616.4,
+      "upgradeMaxGpu": "GeForce RTX 5090（575W）",
+      "itemCount": 9,
+      "items": [
+        "CPU=300",
+        "显卡=1000",
+        "主板=30",
+        "内存=9.2",
+        "NVMe=11",
+        "HDD=8",
+        "一体式水冷=13.2",
+        "机箱风扇=7.2",
+        "机箱灯效=5"
+      ],
+      "issueCodes": [
+        "BEYOND_CONSUMER_PSU",
+        "GPU_LIQUID_RAD",
+        "OC_NOTICE"
+      ],
+      "pickWatts": {
+        "value": null,
+        "balanced": null,
+        "flagship": null
+      }
+    },
+    "ITX 小机箱（集成显卡）": {
+      "subtotal": 123.9,
+      "expected": 117.7,
+      "transient": 123.9,
+      "redundancy": 1.4,
+      "recFloor": 450,
+      "recIdeal": 450,
+      "gpuWatts": 0,
+      "cpuWatts": 88,
+      "upgradeHeadroom": 326.1,
+      "upgradeMaxGpu": "Arc B580（190W）",
+      "itemCount": 7,
+      "items": [
+        "CPU=88",
+        "显卡=0",
+        "主板=15",
+        "内存=6.4",
+        "NVMe=7.5",
+        "风冷散热器=3.6",
+        "机箱风扇=3.4"
+      ],
+      "issueCodes": [
+        "PSU_TIGHT"
+      ],
+      "pickWatts": {
+        "value": 850,
+        "balanced": 850,
+        "flagship": 850
+      }
+    },
+    "多 Gen5 SSD（4 块）": {
+      "subtotal": 976,
+      "expected": 976,
+      "transient": 1493.5,
+      "redundancy": 1.5,
+      "recFloor": 1300,
+      "recIdeal": 1500,
+      "gpuWatts": 575,
+      "cpuWatts": 253,
+      "upgradeHeadroom": 524,
+      "upgradeMaxGpu": "GeForce RTX 5090（575W）",
+      "itemCount": 10,
+      "items": [
+        "CPU=253",
+        "显卡=575",
+        "主板=30",
+        "内存=18.4",
+        "NVMe=22",
+        "NVMe=22",
+        "一体式水冷=17",
+        "机箱风扇=21.6",
+        "机箱灯效=5",
+        "ARGB 灯带=12"
+      ],
+      "issueCodes": [
+        "M2_GEN5_LIMIT",
+        "RAM_CPU_SPEED",
+        "SOCKET_MISMATCH"
+      ],
+      "pickWatts": {
+        "value": 1600,
+        "balanced": 1600,
+        "flagship": 1600
+      }
+    },
+    "ARGB 满载 + 扩展卡": {
+      "subtotal": 756.8,
+      "expected": 756.8,
+      "transient": 954.8,
+      "redundancy": 1.5,
+      "recFloor": 1000,
+      "recIdeal": 1200,
+      "gpuWatts": 330,
+      "cpuWatts": 250,
+      "upgradeHeadroom": 443.2,
+      "upgradeMaxGpu": "GeForce RTX 5080（360W）",
+      "itemCount": 13,
+      "items": [
+        "CPU=250",
+        "显卡=330",
+        "主板=18",
+        "内存=19.2",
+        "NVMe=10",
+        "一体式水冷=18.6",
+        "机箱风扇=24",
+        "机箱灯效=6",
+        "ARGB 灯带=24",
+        "扩展设备=10",
+        "扩展设备=15",
+        "扩展设备=20",
+        "扩展设备=12"
+      ],
+      "issueCodes": [
+        "HIGH_TDP_CPU"
+      ],
+      "pickWatts": {
+        "value": 1250,
+        "balanced": 1200,
+        "flagship": 1600
+      }
+    },
+    "老平台 DDR4（12 代 + B760）": {
+      "subtotal": 346.8,
+      "expected": 329.5,
+      "transient": 512.8,
+      "redundancy": 1.4,
+      "recFloor": 550,
+      "recIdeal": 550,
+      "gpuWatts": 180,
+      "cpuWatts": 117,
+      "upgradeHeadroom": 203.2,
+      "upgradeMaxGpu": "GeForce RTX 4070 SUPER（220W）",
+      "itemCount": 9,
+      "items": [
+        "CPU=117",
+        "显卡=180",
+        "主板=15",
+        "内存=4.8",
+        "SATA=3",
+        "HDD=15",
+        "风冷散热器=3.6",
+        "机箱风扇=5.4",
+        "机箱灯效=3"
+      ],
+      "issueCodes": [
+        "PCIE_DOWNGRADE"
+      ],
+      "pickWatts": {
+        "value": 550,
+        "balanced": 650,
+        "flagship": 1600
+      }
+    },
+    "电源接口不足（触发 error）": {
+      "subtotal": 622.1,
+      "expected": 591,
+      "transient": 820.1,
+      "redundancy": 1.4,
+      "recFloor": 850,
+      "recIdeal": 1000,
+      "gpuWatts": 330,
+      "cpuWatts": 250,
+      "upgradeHeadroom": 377.9,
+      "upgradeMaxGpu": "GeForce RTX 5080（360W）",
+      "itemCount": 8,
+      "items": [
+        "CPU=250",
+        "显卡=330",
+        "主板=18",
+        "内存=6.4",
+        "NVMe=7.5",
+        "风冷散热器=3.6",
+        "机箱风扇=3.6",
+        "机箱灯效=3"
+      ],
+      "issueCodes": [
+        "COOLING_POWER",
+        "GPU_FIT_TIGHT",
+        "HIGH_TDP_CPU",
+        "PSU_TIGHT"
+      ],
+      "pickWatts": {
+        "value": 1000,
+        "balanced": 1000,
+        "flagship": 1600
+      }
+    },
+    "插槽不兼容（AMD CPU + Intel 板）": {
+      "subtotal": 608.1,
+      "expected": 577.7,
+      "transient": 790.5,
+      "redundancy": 1.4,
+      "recFloor": 850,
+      "recIdeal": 850,
+      "gpuWatts": 304,
+      "cpuWatts": 250,
+      "upgradeHeadroom": 241.9,
+      "upgradeMaxGpu": "GeForce RTX 5070 Ti（300W）",
+      "itemCount": 8,
+      "items": [
+        "CPU=250",
+        "显卡=304",
+        "主板=30",
+        "内存=6.4",
+        "NVMe=7.5",
+        "风冷散热器=3.6",
+        "机箱风扇=3.6",
+        "机箱灯效=3"
+      ],
+      "issueCodes": [
+        "COOLING_POWER",
+        "GPU_FIT_TIGHT",
+        "HIGH_TDP_CPU",
+        "SOCKET_MISMATCH"
+      ],
+      "pickWatts": {
+        "value": 850,
+        "balanced": 850,
+        "flagship": 1600
+      }
+    },
+    "未发布硬件（5080 SUPER）": {
+      "subtotal": 636.6,
+      "expected": 604.8,
+      "transient": 968.6,
+      "redundancy": 1.4,
+      "recFloor": 1000,
+      "recIdeal": 1000,
+      "gpuWatts": 415,
+      "cpuWatts": 159,
+      "upgradeHeadroom": 363.4,
+      "upgradeMaxGpu": "GeForce RTX 4090（450W）",
+      "itemCount": 8,
+      "items": [
+        "CPU=159",
+        "显卡=415",
+        "主板=18",
+        "内存=9.2",
+        "NVMe=11",
+        "一体式水冷=13.2",
+        "机箱风扇=7.2",
+        "机箱灯效=4"
+      ],
+      "issueCodes": [
+        "GPU_SLOT_OCCUPY",
+        "UNRELEASED"
+      ],
+      "pickWatts": {
+        "value": 1000,
+        "balanced": 1200,
+        "flagship": 1600
+      }
+    }
+  }
+}

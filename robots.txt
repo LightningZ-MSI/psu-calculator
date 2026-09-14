@@ -1,0 +1,9 @@
+# 允许所有搜索引擎抓取
+User-agent: *
+Allow: /
+
+# 开发与文档目录对搜索引擎无价值，且会稀释抓取预算
+Disallow: /tools/
+Disallow: /docs/
+
+Sitemap: https://lightningz-msi.github.io/-/sitemap.xml

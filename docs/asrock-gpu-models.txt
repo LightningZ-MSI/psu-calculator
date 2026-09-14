@@ -1,0 +1,108 @@
+# 华擎 ASRock 显卡型号表（官网核实）
+
+来源：asmrock.com 官网显卡产品页抓取，2026-09 核查。
+这是本项目中**唯一逐条核对了覆盖型号**的 AIC 厂商，
+数据用于 js/db-aib.js 中 asrock-* 系列的 onlyGpus 字段。
+
+格式：完整型号名 | 所属 GPU | 厂内 SKU 代号
+
+---
+Intel Arc A770 Phantom Gaming 16GB OC | Intel Arc A770 | A770 PG 16GO
+Intel Arc A770 Challenger 16GB OC | Intel Arc A770 | A770 CL 16GO
+Intel Arc A770 Challenger SE 16GB OC | Intel Arc A770 | A770 CL SE 16GO
+Intel Arc A770 Phantom Gaming D 8GB OC | Intel Arc A770 | A770 PGD 8GO
+Intel Arc A750 Challenger D 8GB OC | Intel Arc A750 | A750 CLD 8GO
+Intel Arc A750 Challenger SE 8GB OC | Intel Arc A750 | A750 CL SE 8GO
+Intel Arc A580 Challenger 8GB OC | Intel Arc A580 | A580 CL 8GO
+Intel Arc Pro B70 Passive 32GB | Intel Arc Pro B70 | B70 PS 32G
+Intel Arc Pro B70 Creator 32GB | Intel Arc Pro B70 | B70 CT 32G
+Intel Arc Pro B65 Passive 32GB | Intel Arc Pro B65 | B65 PS 32G
+Intel Arc Pro B65 Creator 32GB | Intel Arc Pro B65 | B65 CT 32G
+Intel Arc Pro B60 Passive 24GB | Intel Arc Pro B60 | B60 PS 24G
+Intel Arc Pro B60 Creator 24GB | Intel Arc Pro B60 | B60 CT 24G
+Intel Arc B580 Steel Legend 12GB OC | Intel Arc B580 | B580 SL 12GO
+Intel Arc B580 Challenger 12GB OC | Intel Arc B580 | B580 CL 12GO
+Intel Arc B570 Challenger 10GB OC | Intel Arc B570 | B570 CL 10GO
+Intel Arc A380 Challenger ITX 6GB OC | Intel Arc A380 | A380 CLI 6GO
+Intel Arc A310 Low Profile 4GB | Intel Arc A310 | A310 LP 4G
+Radeon AI PRO R9700 Creator 32GB | AMD Radeon AI PRO R9700 | R9700 CT 32G
+Radeon AI PRO R9600D Passive 32GB | AMD Radeon AI PRO R9600D | R9600D PS 32G
+Radeon RX 9070 XT Taichi White 16GB OC | AMD Radeon RX 9070 XT | RX9070XT TCW 16GO
+Radeon RX 9070 XT Taichi 16GB OC | AMD Radeon RX 9070 XT | RX9070XT TC 16GO
+Radeon RX 9070 XT Steel Legend 16GB | AMD Radeon RX 9070 XT | RX9070XT SL 16G
+Radeon RX 9070 XT Steel Legend Dark 16GB | AMD Radeon RX 9070 XT | RX9070XT SLD 16G
+Radeon RX 9070 XT Challenger 16GB | AMD Radeon RX 9070 XT | RX9070XT CL 16G
+Radeon RX 9070 GRE Steel Legend Dark 12GB OC | AMD Radeon RX 9070 GRE | RX9070GRE SLD 12GO
+Radeon RX 9070 GRE Challenger 12GB | AMD Radeon RX 9070 GRE | RX9070GRE CL 12G
+Radeon RX 9070 Steel Legend 16GB OC | AMD Radeon RX 9070 | RX9070 SL 16GO
+Radeon RX 9070 Challenger 16GB | AMD Radeon RX 9070 | RX9070 CL 16G
+Radeon RX 9060 XT Steel Legend 16GB OC | AMD Radeon RX 9060 XT | RX9060XT SL 16GO
+Radeon RX 9060 XT Steel Legend 8GB OC | AMD Radeon RX 9060 XT | RX9060XT SL 8GO
+Radeon RX 9060 XT Challenger Pro 16GB OC | AMD Radeon RX 9060 XT | RX9060XT CLP 16GO
+Radeon RX 9060 XT Challenger 16GB OC | AMD Radeon RX 9060 XT | RX9060XT CL 16GO
+Radeon RX 9060 XT Challenger 16GB | AMD Radeon RX 9060 XT | RX9060XT CL 16G
+Radeon RX 9060 XT Challenger 8GB OC | AMD Radeon RX 9060 XT | RX9060XT CL 8GO
+Radeon RX 9060 Challenger 8GB | AMD Radeon RX 9060 | RX9060 CL 8G
+Radeon RX 9050 Challenger 8GB | AMD Radeon RX 9050 | RX9050 CL 8G
+Radeon RX 7900 XTX AQUA 24GB OC | AMD Radeon RX 7900 XTX | RX7900XTX AQ 24GO
+Radeon RX 7900 XTX Taichi White 24GB OC | AMD Radeon RX 7900 XTX | RX7900XTX TCW 24GO
+Radeon RX 7900 XTX Taichi 24GB OC | AMD Radeon RX 7900 XTX | RX7900XTX TC 24GO
+Radeon RX 7900 XTX Phantom Gaming 24GB OC | AMD Radeon RX 7900 XTX | RX7900XTX PG 24GO
+Radeon RX 7900 XTX Passive 24GB | AMD Radeon RX 7900 XTX | RX7900XTX PS 24G
+Radeon RX 7900 XTX 24GB | AMD Radeon RX 7900 XTX | Radeon RX 7900 XTX 24GB
+Radeon RX 7900 XTX Creator 24GB | AMD Radeon RX 7900 XTX | RX7900XTX CT 24G
+Radeon RX 7900 XT Taichi 20GB OC | AMD Radeon RX 7900 XT | RX7900XT TC 20GO
+Radeon RX 7900 XT Phantom Gaming 20GB OC | AMD Radeon RX 7900 XT | RX7900XT PG 20GO
+Radeon RX 7900 XT Phantom Gaming White 20GB OC | AMD Radeon RX 7900 XT | RX7900XT PGW 20GO
+Radeon RX 7900 GRE Steel Legend 16GB OC | AMD Radeon RX 7900 GRE | RX7900GRE SL 16GO
+Radeon RX 7900 GRE Challenger 16GB OC | AMD Radeon RX 7900 GRE | RX7900GRE CL 16GO
+Radeon RX 7900 XT Creator 20GB | AMD Radeon RX 7900 XT | RX7900XT CT 20G
+Radeon RX 7900 XT Passive 20GB | AMD Radeon RX 7900 XT | RX7900XT PS 20G
+Radeon RX 7900 XT 20GB | AMD Radeon RX 7900 XT | Radeon RX 7900 XT 20GB
+Radeon RX 7800 XT Phantom Gaming 16GB OC | AMD Radeon RX 7800 XT | RX7800XT PG 16GO
+Radeon RX 7800 XT Steel Legend 16GB OC | AMD Radeon RX 7800 XT | RX7800XT SL 16GO
+Radeon RX 7800 XT Challenger 16GB OC | AMD Radeon RX 7800 XT | RX7800XT CL 16GO
+Radeon RX 7700 XT Phantom Gaming 12GB OC | AMD Radeon RX 7700 XT | RX7700XT PG 12GO
+Radeon RX 7700 XT Steel Legend 12GB OC | AMD Radeon RX 7700 XT | RX7700XT SL 12GO
+Radeon RX 7700 XT Challenger 12GB OC | AMD Radeon RX 7700 XT | RX7700XT CL 12GO
+Radeon RX 7600 XT Steel Legend 16GB OC | AMD Radeon RX 7600 XT | RX7600XT SL 16GO
+Radeon RX 7600 XT Challenger 16GB OC | AMD Radeon RX 7600 XT | RX7600XT CL 16GO
+Radeon RX 7600 Phantom Gaming 8GB OC | AMD Radeon RX 7600 | RX7600 PG 8GO
+Radeon RX 7600 Steel Legend 8GB OC | AMD Radeon RX 7600 | RX7600 SL 8GO
+Radeon RX 7600 Challenger Pro 8GB OC | AMD Radeon RX 7600 | RX7600 CLP 8GO
+Radeon RX 7600 Challenger 8GB OC | AMD Radeon RX 7600 | RX7600 CL 8GO
+Radeon RX 6950 XT OC Formula 16GB | AMD Radeon RX 6950 XT | RX6950XT OCF 16G
+Radeon RX 6950 XT Phantom Gaming 16GB OC | AMD Radeon RX 6950 XT | RX6950XT PG 16GO
+Radeon RX 6900 XT OC Formula 16GB | AMD Radeon RX 6900 XT | RX6900XT OCF 16G
+Radeon RX 6900 XT Phantom Gaming D 16G OC | AMD Radeon RX 6900 XT | RX6900XT PGD 16GO
+Radeon RX 6900 XT 16G | AMD Radeon RX 6900 XT | Radeon RX 6900 XT 16G
+Radeon RX 6800 XT Taichi X 16G OC | AMD Radeon RX 6800 XT | RX6800XT TCX 16GO
+Radeon RX 6800 XT Phantom Gaming D 16G OC | AMD Radeon RX 6800 XT | RX6800XT PGD 16GO
+Radeon RX 6800 XT Phantom Gaming 16GB OC | AMD Radeon RX 6800 XT | RX6800XT PG 16GO
+Radeon RX 6800 XT 16G | AMD Radeon RX 6800 XT | Radeon RX 6800 XT 16G
+Radeon RX 6800 Phantom Gaming D 16G OC | AMD Radeon RX 6800 | RX6800 PGD 16GO
+Radeon RX 6800 Challenger Pro 16G OC | AMD Radeon RX 6800 | RX6800 CLP 16GO
+Radeon RX 6800 16G | AMD Radeon RX 6800 | Radeon RX 6800 16G
+Radeon RX 6750 XT Phantom Gaming D 12GB OC | AMD Radeon RX 6750 XT | RX6750XT PGD 12GO
+Radeon RX 6750 XT Challenger Pro 12GB OC | AMD Radeon RX 6750 XT | RX6750XT CLP 12GO
+Radeon RX 6700 XT Phantom Gaming D 12GB OC | AMD Radeon RX 6700 XT | RX6700XT PGD 12GO
+Radeon RX 6700 XT Challenger Pro 12GB OC | AMD Radeon RX 6700 XT | RX6700XT CLP 12GO
+Radeon RX 6700 XT Challenger Pro 12GB | AMD Radeon RX 6700 XT | RX6700XT CLP 12G
+Radeon RX 6700 XT Challenger D 12GB OC | AMD Radeon RX 6700 XT | RX6700XT CLD 12GO
+Radeon RX 6700 XT Challenger D 12GB | AMD Radeon RX 6700 XT | RX6700XT CLD 12G
+Radeon RX 6650 XT Phantom Gaming D 8GB OC | AMD Radeon RX 6650 XT | RX6650XT PGD 8GO
+Radeon RX 6650 XT Steel Legend 8GB OC | AMD Radeon RX 6650 XT | RX6650XT SL 8GO
+Radeon RX 6650 XT Challenger D 8GB OC | AMD Radeon RX 6650 XT | RX6650XT CLD 8GO
+Radeon RX 6600 XT Phantom Gaming D 8GB OC | AMD Radeon RX 6600 XT | RX6600XT PGD 8GO
+Radeon RX 6600 XT Challenger Pro 8GB OC | AMD Radeon RX 6600 XT | RX6600XT CLP 8GO
+Radeon RX 6600 XT Challenger D 8GB OC | AMD Radeon RX 6600 XT | RX6600XT CLD 8GO
+Radeon RX 6600 XT Challenger ITX 8GB | AMD Radeon RX 6600 XT | RX6600XT CLI 8G
+Radeon RX 6600 Challenger D 8GB | AMD Radeon RX 6600 | RX6600 CLD 8G
+Radeon RX 6600 Challenger White 8GB | AMD Radeon RX 6600 | RX6600 CLW 8G
+Radeon RX 6600 Challenger ITX 8GB | AMD Radeon RX 6600 | RX6600 CLI 8G
+Radeon RX 6500 XT Phantom Gaming 8GB OC | AMD Radeon RX 6500 XT | RX6500XT PG 8GO
+Radeon RX 6500 XT Phantom Gaming D 4GB OC | AMD Radeon RX 6500 XT | RX6500XT PGD 4GO
+Radeon RX 6500 XT Challenger ITX 4GB | AMD Radeon RX 6500 XT | RX6500XT CLI 4G
+Radeon RX 6400 Challenger ITX 4GB | AMD Radeon RX 6400 | RX6400 CLI 4G
+Radeon RX 6400 Low Profile 4GB | AMD Radeon RX 6400 | RX6400 LP 4G
+Radeon RX550 Low Profile 4GB | AMD Radeon RX 550/550 | RX550 LP 4G
